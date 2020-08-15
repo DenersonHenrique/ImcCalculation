@@ -1,6 +1,15 @@
 # imc_calculation
 
-A new Flutter project.
+IMC - Calculation - Flutter App.
+
+### Prerequisities
+[Flutter SDK](https://flutter.dev/)
+
+### Description
+
+This is a simple application for starting developed mobile with Flutter SDK.
+There is a form in home page, where the user insert your weight and height for calculate the
+body mass index(IMC in Portuguese).
 
 ## Getting Started
 
@@ -14,3 +23,15 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Reference of study and create.
+[Criação de Apps Android e iOS com Flutter - Crie 16 Apps](https://www.udemy.com/course/curso-completo-flutter-app-android-ios/)
+
+Section: App #2 - Cálculo do IMC.
+
+## Author
+
+* Denerson Henrique
+
+[Linkedin](www.linkedin.com/in/denersonhenrique)
+[GitHub](https://github.com/DenersonHenrique)

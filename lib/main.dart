@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Home(),
-  ));
-}
+main() => runApp(Home());
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +13,7 @@ class _HomeState extends State<Home> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _infoText = "Informe seus dados!";
 
+  // Reset inputs.
   void _resetFields() {
     weightController.text = "";
     heightController.text = "";
@@ -26,6 +23,7 @@ class _HomeState extends State<Home> {
     });
   }
 
+  // Calculate IMC.
   void calculate() {
     setState(() {
       double weight = double.parse(weightController.text);
@@ -51,12 +49,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // Criar navbar do app.
-          title: Text("Calculadora de IMC"), // Título na barra.
-          centerTitle: true, // Centralizar Título.
-          backgroundColor: Colors.lightBlueAccent[400], // Bacground da barra Cor.
+          // Create appbar.
+          title: Text("Calculadora de IMC"),
+          centerTitle: true, // Center title.
+          backgroundColor: Colors.lightBlueAccent[400], // Background color.
           actions: <Widget>[
-            // Adicionar ícone de refresh na barra.
+            // Add refresh icon.
             IconButton(
               icon: Icon(Icons.refresh),
               onPressed: _resetFields,
@@ -70,7 +68,7 @@ class _HomeState extends State<Home> {
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment
-                  .stretch, // Preencher toda largura do eixo cruzado(horizontal).
+                  .stretch, // Fill the entire width of the crossed axis (horizontal).
               children: <Widget>[
                 Icon(Icons.person_outline,
                     size: 120.0, color: Colors.lightBlueAccent[400]),
@@ -78,24 +76,34 @@ class _HomeState extends State<Home> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       labelText: "Peso (kg)",
-                      labelStyle: TextStyle(color: Colors.lightBlueAccent[400])),
+                      labelStyle:
+                          TextStyle(color: Colors.lightBlueAccent[400])),
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.lightBlueAccent[400], fontSize: 25.0),
+                  style: TextStyle(
+                      color: Colors.lightBlueAccent[400], fontSize: 25.0),
                   controller: weightController,
                   validator: (value) {
-                    if (value.isEmpty) return "Insira seu peso!";
+                    if (value.isEmpty)
+                      return "Insira seu peso!";
+                    else
+                      return null;
                   },
                 ),
                 TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         labelText: "Altura (cm)",
-                        labelStyle: TextStyle(color: Colors.lightBlueAccent[400])),
+                        labelStyle:
+                            TextStyle(color: Colors.lightBlueAccent[400])),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.lightBlueAccent[400], fontSize: 25.0),
+                    style: TextStyle(
+                        color: Colors.lightBlueAccent[400], fontSize: 25.0),
                     controller: heightController,
                     validator: (value) {
-                      if (value.isEmpty) return "Insira sua altura!";
+                      if (value.isEmpty)
+                        return "Insira sua altura!";
+                      else
+                        return null;
                     }),
                 Padding(
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -105,6 +113,8 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           calculate();
+                          FocusScope.of(context)
+                              .requestFocus(new FocusNode()); // Close keyboard.
                         }
                       },
                       child: Text(
@@ -118,7 +128,8 @@ class _HomeState extends State<Home> {
                 Text(
                   "$_infoText",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.lightBlueAccent[400], fontSize: 25.0),
+                  style: TextStyle(
+                      color: Colors.lightBlueAccent[400], fontSize: 25.0),
                 )
               ],
             ),
