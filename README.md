@@ -31,7 +31,9 @@ Section: App #2 - Cálculo do IMC.
 
 ## Author
 
-* Denerson Henrique
+* **Denerson Henrique** - [Linkedin](www.linkedin.com/in/denersonhenrique) - [GitHub](https://github.com/DenersonHenrique)
 
-[Linkedin](www.linkedin.com/in/denersonhenrique)
-[GitHub](https://github.com/DenersonHenrique)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
+
